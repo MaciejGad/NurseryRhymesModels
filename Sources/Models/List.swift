@@ -7,6 +7,3 @@ public struct List: Codable {
         self.results = results
     }
 }
-
-
-
