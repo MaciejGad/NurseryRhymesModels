@@ -1,3 +1,3 @@
 # Models
 
-A description of this package.
+Models used in NurseryRhymes apps
