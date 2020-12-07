@@ -18,6 +18,6 @@ public struct Rhyme: Codable, Identifiable {
 
 extension Rhyme {
     public func toListItem() -> ListItem {
-        ListItem(rhymeId: id, title: title, image: image, author: author)
+        ListItem(id: id, title: title, image: image, author: author)
     }
 }

@@ -30,7 +30,7 @@ final class ListsTests: BaseTestCase {
         //then
         XCTAssertEqual(sut.results.count, 1)
         let listItem = sut.results[0]
-        XCTAssertEqual(listItem.rhymeId, "five-little-ducks")
+        XCTAssertEqual(listItem.id, "five-little-ducks")
         XCTAssertEqual(listItem.title, "Five Little Ducks Went Swimming One Day")
         XCTAssertEqual(listItem.image, URL(string: "https://placeducky.com/real/281/276.png"))
         XCTAssertNil(listItem.author)
@@ -42,4 +42,4 @@ final class ListsTests: BaseTestCase {
     ]
 }
 
-fileprivate let listJSON = #"{"results":[{"image":"https:\/\/placeducky.com\/real\/281\/276.png","rhymeId":"five-little-ducks","title":"Five Little Ducks Went Swimming One Day"}]}"#
+fileprivate let listJSON = #"{"results":[{"id":"five-little-ducks","image":"https:\/\/placeducky.com\/real\/281\/276.png","title":"Five Little Ducks Went Swimming One Day"}]}"#

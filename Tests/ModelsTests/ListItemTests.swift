@@ -12,7 +12,7 @@ final class ListItemTests: BaseTestCase {
         let data = try jsonEncoder.encode(sut)
         
         //then
-        XCTAssertEqual(sut.rhymeId, rhyme.id)
+        XCTAssertEqual(sut.id, rhyme.id)
         XCTAssertEqual(sut.title, rhyme.title)
         XCTAssertEqual(sut.author, rhyme.author)
         XCTAssertEqual(sut.image, rhyme.image)
@@ -33,7 +33,7 @@ final class ListItemTests: BaseTestCase {
         let sut = try jsonDecoder.decode(ListItem.self, from: data)
         
         //then
-        XCTAssertEqual(sut.rhymeId, "five-little-ducks")
+        XCTAssertEqual(sut.id, "five-little-ducks")
         XCTAssertEqual(sut.title, "Five Little Ducks Went Swimming One Day")
         XCTAssertEqual(sut.image, URL(string: "https://placeducky.com/real/281/276.png"))
         XCTAssertNil(sut.author)
@@ -45,4 +45,4 @@ final class ListItemTests: BaseTestCase {
     ]
 }
 
-fileprivate let listItemJSON = #"{"image":"https:\/\/placeducky.com\/real\/281\/276.png","rhymeId":"five-little-ducks","title":"Five Little Ducks Went Swimming One Day"}"#
+fileprivate let listItemJSON = #"{"id":"five-little-ducks","image":"https:\/\/placeducky.com\/real\/281\/276.png","title":"Five Little Ducks Went Swimming One Day"}"#
