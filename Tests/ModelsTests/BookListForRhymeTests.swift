@@ -5,7 +5,7 @@ final class BookListForRhymeTests: BaseTestCase {
     
     func testEncodeBookListForRhyme() throws {
         //given
-        let book = Book(id: "five-little-ducks-books", title: "Five Little Ducks Went Out One Day!", author: "Margaret Bateson-Hill", coverImage: URL(string: "https://images-na.ssl-images-amazon.com/images/I/61i7xJAXwDL._SX258_BO1,204,203,200_.jpg"), urls: [URL(string: "https://www.amazon.com/Five-Little-Ducks-Went-Out/dp/1857143957")].compactMap{$0})
+        let book = Book(id: "five-little-ducks-books", title: "Five Little Ducks Went Out One Day!", author: "Margaret Bateson-Hill", coverImage: URL(string: "https://images-na.ssl-images-amazon.com/images/I/61i7xJAXwDL._SX258_BO1,204,203,200_.jpg"), url: URL(string: "https://www.amazon.com/Five-Little-Ducks-Went-Out/dp/1857143957")!)
         let rhymeId: Rhyme.ID = "five-little-ducks"
         
         let sut = BookListForRhyme(rhymeId: rhymeId, books: [book])
@@ -38,9 +38,7 @@ final class BookListForRhymeTests: BaseTestCase {
         XCTAssertEqual(book.title, "Five Little Ducks Went Out One Day!")
         XCTAssertEqual(book.author, "Margaret Bateson-Hill")
         XCTAssertEqual(book.coverImage, URL(string: "https://images-na.ssl-images-amazon.com/images/I/61i7xJAXwDL._SX258_BO1,204,203,200_.jpg"))
-        XCTAssertEqual(book.urls.count, 1)
-        let bookUrl = book.urls[0]
-        XCTAssertEqual(bookUrl.absoluteString, "https://www.amazon.com/Five-Little-Ducks-Went-Out/dp/1857143957")
+        XCTAssertEqual(book.url.absoluteString, "https://www.amazon.com/Five-Little-Ducks-Went-Out/dp/1857143957")
     }
     
     static var allTests = [
@@ -49,4 +47,4 @@ final class BookListForRhymeTests: BaseTestCase {
     ]
 }
 
-fileprivate let bookListJSON = #"{"books":[{"author":"Margaret Bateson-Hill","coverImage":"https:\/\/images-na.ssl-images-amazon.com\/images\/I\/61i7xJAXwDL._SX258_BO1,204,203,200_.jpg","id":"five-little-ducks-books","title":"Five Little Ducks Went Out One Day!","urls":["https:\/\/www.amazon.com\/Five-Little-Ducks-Went-Out\/dp\/1857143957"]}],"rhymeId":"five-little-ducks"}"#
+fileprivate let bookListJSON = #"{"books":[{"author":"Margaret Bateson-Hill","coverImage":"https:\/\/images-na.ssl-images-amazon.com\/images\/I\/61i7xJAXwDL._SX258_BO1,204,203,200_.jpg","id":"five-little-ducks-books","title":"Five Little Ducks Went Out One Day!","url":"https:\/\/www.amazon.com\/Five-Little-Ducks-Went-Out\/dp\/1857143957"}],"rhymeId":"five-little-ducks"}"#

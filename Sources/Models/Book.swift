@@ -5,13 +5,13 @@ public struct Book: Codable, Identifiable {
     public let title: String
     public let author: String?
     public let coverImage: URL?
-    public let urls: [URL]
+    public let url: URL
     
-    public init(id: Book.ID, title: String, author: String?, coverImage: URL?, urls: [URL]) {
+    public init(id: Book.ID, title: String, author: String?, coverImage: URL?, url: URL) {
         self.id = id
         self.title = title
         self.author = author
         self.coverImage = coverImage
-        self.urls = urls
+        self.url = url
     }
 }
